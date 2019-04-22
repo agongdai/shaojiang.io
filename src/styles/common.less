@@ -1,0 +1,173 @@
+@import 'theme';
+
+.full-width {
+  width: 100%;
+}
+
+.full-height {
+  height: 100%;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.flex-only {
+  display: flex;
+}
+
+.vertical-center {
+  display: flex;
+  align-items: center;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
+}
+
+.text-center {
+  margin: 0 auto;
+  text-align: center;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.relative {
+  position: relative;
+}
+
+.primary {
+  color: @primaryColor;
+}
+
+.red {
+  color: @validationRed;
+}
+
+.border-none {
+  border: none;
+}
+
+.border-bottom-none {
+  border-bottom: none;
+}
+
+.border-top {
+  border-top: @grayBorder;
+}
+
+.border-right {
+  border-right: @grayBorder;
+}
+
+.show {
+  display: block;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.font500 {
+  font-weight: 500;
+}
+
+.text-ellipsis {
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+@fontWeights: 100, 200, 300, 400, 500, 600, 700, 800, 900;
+
+// Responsiveness
+@screens: sm, md, lg, xl, hg;
+@length: length(@screens);
+@sizes: @screen-sm, @screen-md, @screen-lg, @screen-xl, @screen-hg, 999999px;
+
+.screen-sizes(@screens; @sizes; @index) when (@index > 0) {
+  .screen-sizes(@screens; @sizes; (@index - 1));
+
+  @screen: extract(@screens, @index);
+  @size: extract(@sizes, @index);
+  @max: extract(@sizes, (@index + 1));
+
+  .screen-@{screen},
+  .screen-@{screen}-inline,
+  .screen-@{screen}-flex,
+  .screen-gt-@{screen},
+  .screen-gt-@{screen}-inline,
+  .screen-gt-@{screen}-flex,
+  .screen-lt-@{screen},
+  .screen-lt-@{screen}-inline,
+  .screen-lt-@{screen}-flex {
+    display: none;
+  }
+
+  @media screen and (min-width: @size) and (max-width: @max) {
+    .screen-@{screen} {
+      display: block;
+    }
+
+    .screen-@{screen}-inline {
+      display: inline-block;
+    }
+
+    .screen-@{screen}-flex {
+      display: flex;
+    }
+  }
+
+  @media screen and (min-width: @size) {
+    .screen-gt-@{screen} {
+      display: block;
+    }
+
+    .screen-gt-@{screen}-inline {
+      display: inline-block;
+    }
+
+    .screen-gt-@{screen}-flex {
+      display: flex;
+    }
+
+    .screen-gt-@{screen}-none {
+      display: none;
+    }
+  }
+
+  @media screen and (max-width: @size) {
+    .screen-lt-@{screen} {
+      display: block;
+    }
+
+    .screen-lt-@{screen}-inline {
+      display: inline-block;
+    }
+
+    .screen-lt-@{screen}-flex {
+      display: flex;
+    }
+
+    .screen-lt-@{screen}-none {
+      display: none;
+    }
+  }
+}
+
+.screen-sizes(@screens, @sizes, @length);

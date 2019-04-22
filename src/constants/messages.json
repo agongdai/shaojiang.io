@@ -1,0 +1,56 @@
+{
+  "generalErrorMessage": "Our servers are under heavy load. Please try again shortly.",
+  "invalidAPIResponse": "The API response is not well formatted.",
+  "sessionExpiredMessage": "You have been logged out automatically because of inactivity.",
+  "noTokenMessage": "You've been logged out",
+  "apiTimeoutMessage": "Request timeout. The network is probably too slow.",
+  "unauthorizedAPI": "Your session token is invalid. Please login again.",
+  "endpointsWithToken": [
+    "get register/",
+    "get forgot/reset/"
+  ],
+  "errorMessages": {
+    "get account": {
+      "401": "Incorrect email or password."
+    },
+    "post register": {
+      "409": "An account with this email is already registered."
+    },
+    "get register/:token": {
+      "404": "Registration request is not found. Please submit a new request.",
+      "406": "Registration request has expired. Please submit a new request.",
+      "410": {
+        "message": "You have registered already. You can login now.",
+        "redirect": "/login"
+      }
+    },
+    "post register/:token": {
+      "404": "Registration request has expired. Please submit a new request.",
+      "410": {
+        "message": "You have registered already. You can login now.",
+        "redirect": "/login"
+      }
+    },
+    "post account/2fa/sm": {
+      "406": "Incorrect validation code."
+    },
+    "post account/2fa": {
+      "406": "Incorrect validation code."
+    },
+    "post forgot": {
+      "406": "Email is not registered."
+    },
+    "get forgot/reset/:token": {
+      "404": "Reset password request is not found.",
+      "406": "Reset password request has expired."
+    },
+    "put order": {
+      "410": "We're sorry, but our inventory has changed. Please select products still available."
+    },
+    "post order": {
+      "403": "You need to upgrade your account Authorization Level to buy more hash power",
+      "410": "We're sorry, but our inventory has changed. Please select products still available. Your card has not been charged.",
+      "503": "You need to complete Authorization Level 3 to buy more than $10k worth of hash power."
+    }
+  }
+}

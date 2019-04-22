@@ -1,0 +1,27 @@
+@import '../../styles/theme.less';
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  .content {
+    flex: 1;
+    padding: 0;
+  }
+}
+
+:global(.theme-dark) {
+  .content {
+    background-color: @bgDark;
+  }
+}
+
+@media screen and (max-width: @screen-lg) {
+  .wrapper {
+    .content {
+      padding: 0;
+    }
+  }
+}

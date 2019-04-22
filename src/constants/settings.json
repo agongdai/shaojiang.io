@@ -1,0 +1,24 @@
+{
+  "pagination": {
+    "pageSize": 100,
+    "pagesOnEachSide": 4,
+    "jumpPageNumbers": 5
+  },
+  "localStorage": [
+    "root"
+  ],
+  "string": {
+    "randamStringLength": 32,
+    "randamStringChars": "0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+  },
+  "iScroll": {
+    "interactiveScrollbars": true,
+    "scrollbars": true,
+    "scrollX": false,
+    "resizeScrollbars": false,
+    "mouseWheel": true,
+    "disableMouse": true,
+    "disablePointer": true,
+    "disableTouch": true
+  }
+}
